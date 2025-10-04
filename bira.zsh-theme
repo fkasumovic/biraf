@@ -6,6 +6,11 @@ setopt nopromptbang prompt{cr,percent,sp,subst}
 
 zstyle ':zim:duration-info' threshold 0
 zstyle ':zim:duration-info' show-milliseconds yes
+zstyle ':zim:duration-info' format '(%d) '
+
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec duration-info-preexec
+add-zsh-hook precmd duration-info-precmd
 
 # Depends on git-info module to show git information
 typeset -gA git_info
@@ -20,4 +25,4 @@ fi
 
 PS1='%{%G╭%}%{%G─%}%B%(!.%F{red]}.%F{green}) %F{blue}%~${(e)git_info[prompt]}${VIRTUAL_ENV:+" %F{green}%{%G‹%}${VIRTUAL_ENV:t}%{%G›%}"}%f%b
 %{%G╰%}%{%G─%}%B%(!.#.$)%b '
-RPS1='%B%(?..%F{red}%? %{%G↵%}%f)%b'
+RPS1='${duration_info} %B%(?..%F{red}%? %{%G↵%}%f)%b'
