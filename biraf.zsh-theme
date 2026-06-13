@@ -25,4 +25,4 @@ fi
 
 PS1='%{%G╭%}%{%G─%}%B%(!.%F{red]}.%F{green}) %F{blue}%~${(e)git_info[prompt]}${VIRTUAL_ENV:+" %F{green}%{%G‹%}${VIRTUAL_ENV:t}%{%G›%}"}%f%b
 %{%G╰%}%{%G─%}%B%(!.#.)%b '
-RPS1='${duration_info} %B%(?..%F{red}%? %{%G↵%}%f)%b'
+RPS1='%F{yellow}%n%F{white}@%F{yellow}%m  %F{green}${duration_info} %B%(?..%F{red}%? %{%G↵%}%f)%b'
